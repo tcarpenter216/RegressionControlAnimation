@@ -64,5 +64,19 @@ ggplot(data=df.long, aes(x=wt, y=displacement))+
   exit_shrink() +
   ease_aes('sine-in-out')
 
+# distance from mean
+library(gganimate)
+ggplot(data=df.long, aes(x=wt, y=displacement))+
+  geom_point()+
+  geom_point(aes(x=wt, y=fitted))+
+  geom_segment(aes(x=wt, xend=wt, y=displacement, yend=mean(df.long$fitted)), color="red") +
+  #geom_smooth(method='lm', color="grey10")+
+  theme_light()+
+  transition_states(kind, transition_length = 2, state_length = 1)+
+  enter_fade() + 
+  exit_shrink() +
+  ease_aes('sine-in-out')
+
+
 
   
