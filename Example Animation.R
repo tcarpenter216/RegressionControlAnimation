@@ -68,7 +68,7 @@ ggplot(data=df.long, aes(x=wt, y=displacement))+
 library(gganimate)
 ggplot(data=df.long, aes(x=wt, y=displacement))+
   geom_point()+
-  geom_point(aes(x=wt, y=fitted))+
+  #geom_point(aes(x=wt, y=fitted))+
   geom_segment(aes(x=wt, xend=wt, y=displacement, yend=mean(df.long$fitted)), color="red") +
   #geom_smooth(method='lm', color="grey10")+
   theme_light()+
